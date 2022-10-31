@@ -1,0 +1,67 @@
+.weather-app{
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 20px;
+    border: 1px solid rgb(135, 135, 135);
+    border-radius: 20px;
+}
+
+.town-name{
+    color: #878787;
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 28px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0 auto;
+    margin-bottom: 0;
+    text-align: right;
+}
+
+.time-and-date{
+    padding: 0 auto;
+    margin-bottom: 0;
+    margin-top: 5px;
+    line-height: 22px;
+    font-size: 20px;
+    text-align: right;
+}
+
+.description{
+    padding: 0 auto;
+    margin-top: 0;
+    line-height: 22px;
+    font-size: 20px;
+    text-align: right;
+}
+
+.forecast-data{
+    color: #878787;
+    font-size: 16px;
+    line-height: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0 auto;
+    margin-bottom: 0;
+    font-weight: 50;
+}
+
+ul {
+    list-style-type: none;
+    color: rgb(135, 135, 135);
+    font-size: 20px;
+    font-weight: 200;
+    text-align: left;
+    padding: 0 auto;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+.previsions{
+    color:  rgb(135, 135, 135);
+    font-size: 16px;
+    line-height: 30px;
+    font-weight: 100;
+    padding-top: 20px;
+    padding-bottom: 10px;
+  }
+
+  
