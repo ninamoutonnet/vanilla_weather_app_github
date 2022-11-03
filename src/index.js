@@ -1,7 +1,15 @@
-function getTemp(response){
-    console.log(response.data)
-    console.log(response.data.main.temp);
+function formatDate(timestamp){
+    let date = new Date(timestamp*1000);
+    let hours = ('0'+ date.getHours()).slice(-2);
+    let min = ('0'+ date.getMinutes()).slice(-2);
+    let day = date.getDay();
+    let days = [ 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    return `${days[day]}, ${hours}:${min}`
+}
 
+
+function getTemp(response){
+   
     let tempElement = document.querySelector("#temperature");
     tempElement.innerHTML = Math.round(response.data.main.temp);
 
@@ -18,14 +26,15 @@ function getTemp(response){
     let windElement = document.querySelector("#wind");
     windElement.innerHTML = `Wind: ${response.data.wind.speed} km/h`;
 
-
+    let dateElement = document.querySelector("#date");
+    dateElement.innerHTML = formatDate(response.data.dt);
+    
+    let iconElement = document.querySelector("#icon");
+    iconElement.setAttribute("src",  `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
 }
 
 let apiKey ="a1a0828d38141e5a08d007a5f3e0419f";
-cityName = "London";
+let cityName = "London";
 let apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=metric`;
-console.log(apiURL)
-
-
 
 axios.get(apiURL).then(getTemp)
