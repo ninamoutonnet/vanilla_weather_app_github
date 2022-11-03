@@ -15,7 +15,6 @@ ul {
     margin-right: 10px ;
     margin-left: 10px ;
     margin-bottom: 0px ;
-
     padding: 20px;
     border: 1px solid rgb(135, 135, 135);
     border-radius: 20px;
@@ -89,7 +88,8 @@ ul {
     top: -25px;
 }
 
-.forecast-data .row{
+.forecast-data {
     margin: 0;
     padding: 0;
 }
+

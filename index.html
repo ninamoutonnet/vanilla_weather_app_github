@@ -7,6 +7,8 @@
     <title>Weather App</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="src/style.css">
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+
 </head>
 <body>
     <div class="weather-app-wrapper"> 
@@ -25,42 +27,40 @@
                                     <img src="https://cdn-icons-png.flaticon.com/512/169/169367.png" alt="sun" class="img-fluid">
                                 </div> 
 
-                                <div class="col-4">
-                                    <strong id="temperature">19</strong
+                                <div class="col-4 today-temp">
+                                    <strong id="temperature"></strong
                                     ><span class="units">°C | <a href="#">°F</a></span>
                                 </div>
                                 
-                                <div class="col-5 forecast-data">
-                                    <div class="row"> 
-                                        Precipitation: 0%
-                                    </div>
-                                    <div class="row"> 
-                                        Humidity: 74%
-                                    </div>
-                                    <div class="row"> 
-                                        Wind: 5 km/h
-                                    </div>
+                                <div class="col-5">
+                                    <ul class="forecast-data">
+                                        
+                                        <li>
+                                            <span id="humidity"></span>
+                                        </li>
+                                        <li>
+                                            <span id="wind"></span>
+                                        </li>
+                                    </ul>
                                 </div>
                         
                         </div>
                     </div>
                     <div class="col-5">
                         <ul>
-                            <li class="town-name">
-                                Londres
+                            <li class="town-name" id="city">
                             </li>
                             <li class="time-and-date">
                                 Mercredi, 13:00
                             </li>
-                            <li class="description">
-                                Nuageux
+                            <li class="description" id="description-weather">
                             </li>
                         </ul>
                     </div>
                 </div>
 
-                <div class="row">
-                    <div class="col-2">
+                <div class="row justify-content-center">
+                    <div class="col">
                         <ul class="previsions">
                             <li>
                                 Monday
@@ -73,7 +73,7 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="col-2">
+                    <div class="col">
                         <ul class="previsions">
                             <li>
                                 Tuesday
@@ -86,7 +86,7 @@
                             </li>
                         </ul> 
                     </div>
-                    <div class="col-2">
+                    <div class="col">
                         <ul class="previsions">
                             <li>
                                 Wednesday
@@ -99,7 +99,7 @@
                             </li>
                         </ul> 
                     </div>
-                    <div class="col-2">
+                    <div class="col">
                         <ul class="previsions">
                             <li>
                                 Thursday
@@ -112,7 +112,7 @@
                             </li>
                         </ul> 
                     </div>
-                    <div class="col-2">
+                    <div class="col">
                         <ul class="previsions">
                             <li>
                                 Friday
