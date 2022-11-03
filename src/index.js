@@ -33,8 +33,20 @@ function getTemp(response){
     iconElement.setAttribute("src",  `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
 }
 
-let apiKey ="a1a0828d38141e5a08d007a5f3e0419f";
-let cityName = "London";
-let apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=metric`;
+function handleSubmit(event){
+    event.preventDefault();
+    let cityElement = document.querySelector("#city-input"); 
+    search(cityElement.value);
+}
 
-axios.get(apiURL).then(getTemp)
+function search(city){
+    let apiKey ="a1a0828d38141e5a08d007a5f3e0419f";
+    let cityName = city;
+    let apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=metric`;
+    axios.get(apiURL).then(getTemp);
+}
+
+search("London");
+
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", handleSubmit);
