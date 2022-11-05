@@ -13,6 +13,8 @@ function getTemp(response){
     let tempElement = document.querySelector("#temperature");
     tempElement.innerHTML = Math.round(response.data.main.temp);
 
+    celsiusTemp = response.data.main.temp;
+
     let cityElement = document.querySelector("#city");
     cityElement.innerHTML = response.data.name; 
 
@@ -22,7 +24,6 @@ function getTemp(response){
     let humidityElement = document.querySelector("#humidity");
     humidityElement.innerHTML = `Humidity: ${response.data.main.humidity}%`;
 
-    
     let windElement = document.querySelector("#wind");
     windElement.innerHTML = `Wind: ${response.data.wind.speed} km/h`;
 
@@ -46,7 +47,45 @@ function search(city){
     axios.get(apiURL).then(getTemp);
 }
 
-search("London");
+function showFarenheightTemp(event){
+    event.preventDefault();
+    Farenheight_value = (celsiusTemp*9)/5+32;
+    let tempElement = document.querySelector("#temperature");
+    tempElement.innerHTML = Math.round(Farenheight_value);
+    //remove active class from celsius link
+    celsiusLink.classList.remove("active");
+    //add active class from farenheight link
+    farenheitLink.classList.add("active");
+
+}
+
+
+function showCelsiusTemp(event){
+    event.preventDefault();
+    if (Farenheight_value != null){
+        celsiusTemp = (Farenheight_value - 32)*5/9;
+        let tempElement = document.querySelector("#temperature");
+        tempElement.innerHTML = Math.round(celsiusTemp);
+        //add active class from celsius link
+        celsiusLink.classList.add("active");
+        //remove active class from farenheight link
+        farenheitLink.classList.remove("active");
+    }
+}
+
+let celsiusTemp = null;
+let Farenheight_value = null;
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
+
+let farenheitLink = document.querySelector("#farenheit_link");
+farenheitLink.addEventListener("click", showFarenheightTemp);
+
+
+let celsiusLink = document.querySelector("#celsius_link");
+celsiusLink.addEventListener("click", showCelsiusTemp);
+
+
+
+search("London");

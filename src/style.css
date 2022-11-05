@@ -24,7 +24,7 @@ ul {
     color: #878787;
     font-size: 30px;
     font-weight: 400;
-    line-height: 28px;
+    line-height: 35px;
     font-family: Arial, Helvetica, sans-serif;
     padding: 0 auto;
     margin-bottom: 0;
@@ -93,3 +93,17 @@ ul {
     padding: 0;
 }
 
+#celsius_link {
+    text-decoration: none;
+}
+
+#farenheit_link{
+    text-decoration: none;
+}
+
+.today-temp .units .active{
+    color: rgb(35, 35, 35);
+    cursor: default;
+
+
+}
